@@ -9,14 +9,14 @@ export default function Navbar() {
     return (
         <header className="navbar">
             <div className="navbar-inner container">
-                <a href="/#/" className="brand">
+                <Link to="/" className="brand">
                     <img
                         src={logo}
                         alt="Achiever Thoughts logo"
                         className="brand-logo"
                     />
                     
-                </a>
+                </Link>
 
                 <button
                     className="nav-toggle"

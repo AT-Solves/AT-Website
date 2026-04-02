@@ -2,7 +2,7 @@
 import "../styles/base.css";
 import "../styles/layout.css";
 import "../styles/home.css";
-import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
@@ -24,12 +24,12 @@ export default function Home() {
                     </p>
 
                     <nav className="hero-actions" aria-label="Primary actions">
-                        <a href="/#/products" className="button-primary">
+                        <Link to="/products" className="button-primary">
                             View Products
-                        </a>
-                        <a href="/#/demos" className="button-secondary">
+                        </Link>
+                        <Link to="/demos" className="button-secondary">
                             Explore Demos
-                        </a>
+                        </Link>
                     </nav>
                 </div>
             </section>
