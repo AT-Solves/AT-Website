@@ -1,34 +1,37 @@
-﻿import "../styles/variables.css";
+﻿import { memo } from "react";
+import "../styles/variables.css";
 import "../styles/base.css";
 import "../styles/layout.css";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
+import {
+    HOME_PAGE,
+    UI_CLASSES,
+    HOME_ARIA,
+} from "../config/constants";
 
-
-export default function Home() {
+const Home = memo(function Home() {
     return (
         <>
-                       
             {/* HERO */}
-            <section className="hero" aria-labelledby="home-title">
-                <div className="hero-inner container">
-                    <h1 id="home-title" className="hero-title">
-                        Achiever Thoughts
+            <section className={UI_CLASSES.HERO.SECTION} aria-labelledby={HOME_ARIA.HOME_TITLE_ID}>
+                <div className={`${UI_CLASSES.HERO.INNER} ${UI_CLASSES.LAYOUT.CONTAINER}`}>
+                    <h1 id={HOME_ARIA.HOME_TITLE_ID} className={UI_CLASSES.HERO.TITLE}>
+                        {HOME_PAGE.HERO.TITLE}
                     </h1>
 
-                    <div className="hero-divider"></div>
+                    <div className={UI_CLASSES.HERO.DIVIDER}></div>
 
-                    <p className="hero-text">
-                        A calm and thoughtful space to explore ideas, systems,
-                        and technology built with long term intent and responsibility.
+                    <p className={UI_CLASSES.HERO.TEXT}>
+                        {HOME_PAGE.HERO.DESCRIPTION}
                     </p>
 
-                    <nav className="hero-actions" aria-label="Primary actions">
-                        <Link to="/products" className="button-primary">
-                            View Products
+                    <nav className={UI_CLASSES.HERO.ACTIONS} aria-label={HOME_ARIA.SECTION_LABEL}>
+                        <Link to={HOME_PAGE.ACTIONS.PRIMARY.path} className={UI_CLASSES.BUTTONS.PRIMARY}>
+                            {HOME_PAGE.ACTIONS.PRIMARY.label}
                         </Link>
-                        <Link to="/demos" className="button-secondary">
-                            Explore Demos
+                        <Link to={HOME_PAGE.ACTIONS.SECONDARY.path} className={UI_CLASSES.BUTTONS.SECONDARY}>
+                            {HOME_PAGE.ACTIONS.SECONDARY.label}
                         </Link>
                     </nav>
                 </div>
@@ -36,61 +39,34 @@ export default function Home() {
 
             {/* MAIN CONTENT */}
             <main>
-                <section className="section section-alt">
-                    <div className="container">
-                        <h2 className="section-title">
-                            What This Platform Represents
+                <section className={`${UI_CLASSES.SECTIONS.SECTION} ${UI_CLASSES.SECTIONS.SECTION_ALT}`}>
+                    <div className={UI_CLASSES.LAYOUT.CONTAINER}>
+                        <h2 className={UI_CLASSES.SECTIONS.TITLE}>
+                            {HOME_PAGE.SECTION_TITLE}
                         </h2>
-                        <div className="section-divider"></div>
+                        <div className={UI_CLASSES.SECTIONS.DIVIDER}></div>
 
-                        <div className="grid-3">
-                            <article className="card">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}TEIcon.png`}
-                                    alt=""
-                                    className="card-icon"
-                                    aria-hidden="true"
-                                />
-                                <h3>Thoughtful Engineering</h3>
-                                <p>
-                                    Systems designed with clarity, discipline,
-                                    and long term maintainability.
-                                </p>
-                            </article>
-
-                            <article className="card">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}SEIcon.png`}
-                                    alt=""
-                                    className="card-icon"
-                                    aria-hidden="true"
-                                />
-                                <h3>Structured Exploration</h3>
-                                <p>
-                                    Ideas examined through careful analysis,
-                                    prototypes, and demonstrations.
-                                </p>
-                            </article>
-
-                            <article className="card">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}RPIcon.png`}
-                                    alt=""
-                                    className="card-icon"
-                                    aria-hidden="true"
-                                />
-                                <h3>Responsible Progress</h3>
-                                <p>
-                                    Technology choices guided by impact,
-                                    safety, and sustainability.
-                                </p>
-                            </article>
+                        <div className={UI_CLASSES.GRID.GRID_3}>
+                            {HOME_PAGE.CARDS.map((card) => (
+                                <article key={card.id} className={UI_CLASSES.CARDS.CARD}>
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}${card.icon}`}
+                                        alt=""
+                                        className={UI_CLASSES.CARDS.CARD_ICON}
+                                        aria-hidden="true"
+                                    />
+                                    <h3>{card.title}</h3>
+                                    <p>{card.description}</p>
+                                </article>
+                            ))}
                         </div>
                     </div>
                 </section>
             </main>
-
-            
         </>
     );
-}
+});
+
+Home.displayName = "Home";
+
+export default Home;

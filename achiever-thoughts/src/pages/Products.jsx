@@ -1,55 +1,61 @@
-﻿import products from "../data/products.json";
+﻿import { memo } from "react";
+import products from "../data/products.json";
 import "../styles/products.css";
+import { PRODUCTS_PAGE, UI_CLASSES, PRODUCT_LABELS } from "../config/constants";
 
-export default function Products() {
+const Products = memo(function Products() {
     return (
         <main>
-            <section className="hero">
-                <div className="hero-inner container">
-                    <h1 className="hero-title">
-                        Rapid Prototyping Applications
+            <section className={UI_CLASSES.HERO.SECTION}>
+                <div className={`${UI_CLASSES.HERO.INNER} ${UI_CLASSES.LAYOUT.CONTAINER}`}>
+                    <h1 className={UI_CLASSES.HERO.TITLE}>
+                        {PRODUCTS_PAGE.HERO.TITLE}
                     </h1>
-                    <div className="hero-divider"></div>
-                    <p className="hero-text">
-                        A collection of AI-driven prototypes built through
-                        exploration, learning, and applied product thinking.
+                    <div className={UI_CLASSES.HERO.DIVIDER}></div>
+                    <p className={UI_CLASSES.HERO.TEXT}>
+                        {PRODUCTS_PAGE.HERO.DESCRIPTION}
                     </p>
                 </div>
             </section>
 
-            <section className="section section-alt">
-                <div className="container">
-                    <h2 className="section-title">
-                        Applications Portfolio
+            <section className={`${UI_CLASSES.SECTIONS.SECTION} ${UI_CLASSES.SECTIONS.SECTION_ALT}`}>
+                <div className={UI_CLASSES.LAYOUT.CONTAINER}>
+                    <h2 className={UI_CLASSES.SECTIONS.TITLE}>
+                        {PRODUCTS_PAGE.SECTION_TITLE}
                     </h2>
-                    <div className="section-divider"></div>
+                    <div className={UI_CLASSES.SECTIONS.DIVIDER}></div>
 
-                    <div className="grid-3">
+                    <div className={UI_CLASSES.GRID.GRID_3}>
                         {products.map((product) => (
-                            <article key={product.id} className="card product-card">
+                            <article key={product.id} className={`${UI_CLASSES.CARDS.CARD} ${UI_CLASSES.PRODUCTS.PRODUCT_CARD}`}>
                                 <h3>{product.name}</h3>
 
-                                <p className="product-meta">
-                                    Category: {product.category}
+                                <p className={UI_CLASSES.PRODUCTS.PRODUCT_META}>
+                                    {PRODUCT_LABELS.CATEGORY_LABEL} {product.category}
                                 </p>
 
                                 <p>{product.description}</p>
 
-                                <p className="product-status">
-                                    Status: {product.status}
+                                <p className={UI_CLASSES.PRODUCTS.PRODUCT_STATUS}>
+                                    {PRODUCT_LABELS.STATUS_LABEL} {product.status}
                                 </p>
 
-                                <div className="product-actions">
+                                <div className={UI_CLASSES.PRODUCTS.PRODUCT_ACTIONS}>
                                     <a
                                         href={product.url}
-                                        className="button-primary"
+                                        className={UI_CLASSES.BUTTONS.PRIMARY}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        Launch Application
+                                        {PRODUCTS_PAGE.BUTTON_LABELS.LAUNCH}
                                     </a>
-                                    <a href={product.github} className="button-secondary" target="_blank">
-                                        View GitHub
+                                    <a
+                                        href={product.github}
+                                        className={UI_CLASSES.BUTTONS.SECONDARY}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {PRODUCTS_PAGE.BUTTON_LABELS.GITHUB}
                                     </a>
                                 </div>
                             </article>
@@ -59,4 +65,8 @@ export default function Products() {
             </section>
         </main>
     );
-}
+});
+
+Products.displayName = "Products";
+
+export default Products;

@@ -1,9 +1,20 @@
-function Footer() {
+import { memo } from "react";
+import { FOOTER } from "../config/constants";
+
+const Footer = memo(function Footer() {
     return (
-        <footer style={{ textAlign: 'center', padding: '1rem', background: '#f4f4f4' }}>
-            <p> © 2026 Achiever Thoughts</p>
+        <footer
+            style={{
+                textAlign: FOOTER.TEXT_ALIGN,
+                padding: FOOTER.PADDING,
+                background: FOOTER.BACKGROUND,
+            }}
+        >
+            <p>{FOOTER.COPY_TEXT}</p>
         </footer>
     );
-}
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;
