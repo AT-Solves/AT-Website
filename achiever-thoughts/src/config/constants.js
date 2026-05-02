@@ -15,16 +15,14 @@ export const APP_CONFIG = {
 export const ROUTES = {
     HOME: "/",
     PRODUCTS: "/products",
-    DEMOS: "/demos",
-    INVESTORS: "/investors",
+    ABOUT: "/about",
 };
 
 export const NAVIGATION = {
     ITEMS: [
         { label: "Home", path: ROUTES.HOME },
         { label: "Products", path: ROUTES.PRODUCTS },
-        { label: "Demos", path: ROUTES.DEMOS },
-        { label: "Investors", path: ROUTES.INVESTORS },
+        { label: "About", path: ROUTES.ABOUT },
     ],
 };
 
@@ -60,8 +58,8 @@ export const HOME_PAGE = {
             path: ROUTES.PRODUCTS,
         },
         SECONDARY: {
-            label: "Explore Demos",
-            path: ROUTES.DEMOS,
+            label: "Learn More",
+            path: ROUTES.ABOUT,
         },
     },
 };
@@ -75,6 +73,41 @@ export const PRODUCTS_PAGE = {
     BUTTON_LABELS: {
         LAUNCH: "Launch Application",
         GITHUB: "View GitHub",
+    },
+};
+
+export const ABOUT_PAGE = {
+    HERO: {
+        TITLE: "About Achiever Thoughts",
+        DESCRIPTION: "Thoughtful exploration of ideas, systems, and technology with a focus on long-term responsibility and impact.",
+    },
+    MISSION: {
+        TITLE: "Our Mission",
+        DESCRIPTION: "We believe in the power of calm, intentional exploration. At Achiever Thoughts, we create spaces for deep thinking about technology, business, and innovation. Our work balances ambition with responsibility, ensuring that every solution we pursue serves a meaningful purpose.",
+    },
+    VALUES: {
+        TITLE: "Our Core Values",
+        ITEMS: [
+            {
+                id: "clarity",
+                title: "Clarity",
+                description: "Clear thinking leads to better decisions. We prioritize understanding over complexity.",
+            },
+            {
+                id: "discipline",
+                title: "Discipline",
+                description: "Structured approaches to exploration. Every project is built with intentionality and care.",
+            },
+            {
+                id: "impact",
+                title: "Impact",
+                description: "Meaningful progress. We measure success by positive outcomes and sustainable growth.",
+            },
+        ],
+    },
+    APPROACH: {
+        TITLE: "Our Approach",
+        DESCRIPTION: "We combine rigorous analysis with creative exploration. Through prototypes, demonstrations, and collaborative dialogue, we develop solutions that are both innovative and responsible. Every project is an opportunity to advance our understanding of what's possible when technology meets thoughtfulness.",
     },
 };
 
