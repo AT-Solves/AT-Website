@@ -1,14 +1,14 @@
 import { memo } from "react";
-import { UI_CLASSES } from "../config/constants";
+import { UI_CLASSES, DEMOS_PAGE } from "../config/constants";
 
 const Demos = memo(function Demos() {
     return (
         <main>
             <section className={UI_CLASSES.HERO.SECTION}>
                 <div className={`${UI_CLASSES.HERO.INNER} ${UI_CLASSES.LAYOUT.CONTAINER}`}>
-                    <h1 className={UI_CLASSES.HERO.TITLE}>Demos</h1>
+                    <h1 className={UI_CLASSES.HERO.TITLE}>{DEMOS_PAGE.HERO.TITLE}</h1>
                     <p className={UI_CLASSES.HERO.TEXT}>
-                        Explore interactive demonstrations of our projects and products.
+                        {DEMOS_PAGE.HERO.DESCRIPTION}
                     </p>
                 </div>
             </section>

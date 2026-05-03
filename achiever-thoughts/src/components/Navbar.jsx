@@ -2,7 +2,7 @@
 import "../styles/navbar.css";
 import logo from "../assets/ATIcon-White.png";
 import { Link } from "react-router-dom";
-import { UI_CLASSES, NAVBAR_ARIA, NAVIGATION } from "../config/constants";
+import { UI_CLASSES, NAVBAR_ARIA, NAVIGATION, NAVBAR_LABELS, APP_CONFIG } from "../config/constants";
 
 const Navbar = memo(function Navbar() {
     const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navbar = memo(function Navbar() {
                 <Link to="/" className={UI_CLASSES.LAYOUT.BRAND}>
                     <img
                         src={logo}
-                        alt="Achiever Thoughts logo"
+                        alt={APP_CONFIG.LOGO_ALT}
                         className={UI_CLASSES.LAYOUT.BRAND_LOGO}
                     />
                 </Link>
@@ -24,7 +24,7 @@ const Navbar = memo(function Navbar() {
                     aria-expanded={open}
                     onClick={() => setOpen(!open)}
                 >
-                    Menu
+                    {NAVBAR_LABELS.MENU_TEXT}
                 </button>
 
                 <nav

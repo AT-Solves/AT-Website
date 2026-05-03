@@ -60,6 +60,45 @@ const About = memo(function About() {
                     </p>
                 </div>
             </section>
+
+            {/* Founder Section */}
+            <section className={UI_CLASSES.SECTIONS.SECTION}>
+                <div className={UI_CLASSES.LAYOUT.CONTAINER}>
+                    <h2 className={UI_CLASSES.SECTIONS.TITLE}>
+                        {ABOUT_PAGE.FOUNDER.LABELS.SECTION_TITLE}
+                    </h2>
+                    <div className={UI_CLASSES.HERO.DIVIDER}></div>
+
+                    <div className={UI_CLASSES.CARDS.CARD}>
+                        <h3>{ABOUT_PAGE.FOUNDER.NAME}</h3>
+                        <p><strong>{ABOUT_PAGE.FOUNDER.TITLE}</strong></p>
+                        <p>{ABOUT_PAGE.FOUNDER.BIO}</p>
+
+                        <h4>{ABOUT_PAGE.FOUNDER.LABELS.CONTACT_TITLE}</h4>
+                        <p>
+                            <a href={`mailto:${ABOUT_PAGE.FOUNDER.CONTACT.EMAIL}`}>{ABOUT_PAGE.FOUNDER.CONTACT.EMAIL}</a>
+                            {' '}•{' '}
+                            <a href={ABOUT_PAGE.FOUNDER.CONTACT.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
+                            {' '}•{' '}
+                            {ABOUT_PAGE.FOUNDER.CONTACT.LOCATION}
+                        </p>
+
+                        <h4>{ABOUT_PAGE.FOUNDER.LABELS.HIGHLIGHTS_TITLE}</h4>
+                        <ul>
+                            {ABOUT_PAGE.FOUNDER.HIGHLIGHTS.map((h, i) => (
+                                <li key={i}>{h}</li>
+                            ))}
+                        </ul>
+
+                        <h4>{ABOUT_PAGE.FOUNDER.LABELS.CERTS_TITLE}</h4>
+                        <ul>
+                            {ABOUT_PAGE.FOUNDER.CERTIFICATIONS.map((c, i) => (
+                                <li key={i}>{c.name} — {c.date}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </main>
     );
 });
