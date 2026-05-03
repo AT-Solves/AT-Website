@@ -1,0 +1,332 @@
+/* Profile Page Styles */
+
+.profile-page {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* Profile Hero Section */
+.profile-hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.profile-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.profile-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #ecf0f1;
+}
+
+.profile-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #bdc3c7;
+    line-height: 1.6;
+}
+
+/* Contact Links */
+.profile-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Profile Sections */
+.profile-section {
+    padding: 3rem 1rem;
+}
+
+.profile-section-alt {
+    background: #f5f7fa;
+}
+
+.profile-section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-section-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(to right, #27ae60 0%, transparent 100%);
+    margin-left: 1rem;
+}
+
+.profile-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+/* Experience Section */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #27ae60;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateX(4px);
+}
+
+.exp-role {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.exp-company {
+    font-size: 1rem;
+    color: #27ae60;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.exp-period {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.exp-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.exp-highlights li {
+    padding: 0.35rem 0;
+    padding-left: 1.5rem;
+    color: #34495e;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+.exp-highlights li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.expertise-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.expertise-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.expertise-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    padding: 0.35rem 0;
+    color: #34495e;
+    font-size: 0.95rem;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.skills-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Achievements List */
+.achievements-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.achievements-list li {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: #2c3e50;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 2.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.achievements-list li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.achievements-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: 0.75rem;
+    font-size: 1.2rem;
+}
+
+/* Certifications */
+.certifications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid #27ae60;
+    transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.cert-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.cert-date {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+.cert-status {
+    font-size: 0.9rem;
+    color: #27ae60;
+    font-weight: 500;
+}
+
+/* Vision Section */
+.profile-vision {
+    font-size: 1.1rem;
+    font-style: italic;
+    border-left: 4px solid #27ae60;
+    padding-left: 1.5rem;
+    color: #34495e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .profile-contact {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .contact-link {
+        width: 100%;
+    }
+
+    .profile-section-title {
+        font-size: 1.5rem;
+    }
+
+    .experience-list,
+    .expertise-grid,
+    .achievements-list,
+    .certifications-list {
+        gap: 1rem;
+    }
+
+    .profile-section {
+        padding: 2rem 1rem;
+    }
+}
