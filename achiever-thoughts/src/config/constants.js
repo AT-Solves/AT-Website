@@ -25,10 +25,8 @@ export const ROUTES = {
 export const NAVIGATION = {
     ITEMS: [
         { label: "Home", path: ROUTES.HOME },
-        { label: "Products", path: ROUTES.PRODUCTS },
-        { label: "About", path: ROUTES.ABOUT },
-        { label: "Investors", path: ROUTES.INVESTORS },
         { label: "AI Achiever", path: ROUTES.AI_ACHIEVER },
+        { label: "Profile", path: ROUTES.PROFILE },
     ],
 };
 

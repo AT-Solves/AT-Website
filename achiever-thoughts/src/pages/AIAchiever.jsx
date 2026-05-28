@@ -1,5 +1,6 @@
 import { useState, memo } from "react";
 import "../styles/ai-achiever.css";
+import greenLogo from "../assets/ATIcon-Green.png";
 
 // ─── SKILL TREE ───────────────────────────────────────────────────────────────
 const SKILL_TREE = [
@@ -860,7 +861,7 @@ const Welcome = memo(function Welcome({ totalSkills, visited }) {
   ];
   return (
     <div className="aa-welcome">
-      <span className="aa-welcome-icon">🚀</span>
+      <img src={greenLogo} alt="Achiever Thoughts" className="aa-welcome-logo" />
       <h1>AI Achiever</h1>
       <p className="aa-welcome-sub">
         A self-paced learning hub for AI Product Management. Pick a skill from the sidebar, choose your level, and dive in.
@@ -1125,7 +1126,6 @@ const AIAchiever = memo(function AIAchiever() {
           <div className="aa-cat" key={cat.id}>
             <button className="aa-cat-btn" onClick={() => toggleCat(cat.id)}>
               <span className="aa-cat-bar" style={{ background: cat.color }} />
-              <span className="aa-cat-icon">{cat.icon}</span>
               <span className="aa-cat-name">{cat.name}</span>
               <span className={`aa-cat-chevron${expanded === cat.id ? " open" : ""}`}>▶</span>
             </button>

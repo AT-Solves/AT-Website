@@ -185,12 +185,13 @@
   text-align: center;
 }
 
-.aa-welcome-icon {
-  font-size: 68px;
+.aa-welcome-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
   animation: float 3.2s ease-in-out infinite;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   display: block;
-  line-height: 1;
 }
 
 .aa-welcome h1 {
