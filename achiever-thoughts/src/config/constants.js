@@ -15,16 +15,16 @@ export const APP_CONFIG = {
 export const ROUTES = {
     HOME: "/",
     PRODUCTS: "/products",
-    DEMOS: "/demos",
     INVESTORS: "/investors",
+    AI_ACHIEVER: "/ai-achiever",
 };
 
 export const NAVIGATION = {
     ITEMS: [
         { label: "Home", path: ROUTES.HOME },
         { label: "Products", path: ROUTES.PRODUCTS },
-        { label: "Demos", path: ROUTES.DEMOS },
         { label: "Investors", path: ROUTES.INVESTORS },
+        { label: "AI Achiever", path: ROUTES.AI_ACHIEVER },
     ],
 };
 

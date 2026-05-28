@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
-import Demos from './pages/Demos';
 import Investors from './pages/Investors';
+import AIAchiever from './pages/AIAchiever';
 import { ROUTES } from './config/constants';
 
 const App = memo(function App() {
@@ -15,8 +15,8 @@ const App = memo(function App() {
             <Routes>
                 <Route path={ROUTES.HOME} element={<Home />} />
                 <Route path={ROUTES.PRODUCTS} element={<Products />} />
-                <Route path={ROUTES.DEMOS} element={<Demos />} />
                 <Route path={ROUTES.INVESTORS} element={<Investors />} />
+                <Route path={ROUTES.AI_ACHIEVER} element={<AIAchiever />} />
             </Routes>
             <Footer />
         </Router>
