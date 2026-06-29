@@ -31,16 +31,19 @@ const QAMill = memo(function QAMill() {
     }, []);
 
     return (
-        <main style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+        <main style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
             <iframe
                 src="https://qamill.achieverthoughts.com/index-iframe.html"
                 width="100%"
                 height={iframeHeight}
                 frameBorder="0"
+                scrolling="no"
                 style={{
                     border: 'none',
                     margin: 0,
-                    padding: 0
+                    padding: 0,
+                    overflow: 'hidden',
+                    display: 'block'
                 }}
                 title="QA Mill - AI-Powered Testing Automation"
             />
