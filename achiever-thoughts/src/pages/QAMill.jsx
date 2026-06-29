@@ -6,7 +6,7 @@ const QAMill = memo(function QAMill() {
             <section className="section" style={{ paddingTop: '40px' }}>
                 <div className="container">
                     <iframe
-                        src="https://qamill.achieverthoughts.com/website/index-iframe.html"
+                        src="https://qamill.achieverthoughts.com/index-iframe.html"
                         width="100%"
                         height="1600"
                         frameBorder="0"
