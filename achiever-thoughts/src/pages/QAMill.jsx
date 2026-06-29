@@ -6,22 +6,17 @@ const QAMill = memo(function QAMill() {
     useEffect(() => {
         const updateHeight = () => {
             const width = window.innerWidth;
-            const navbarHeight = 64;
-            const footerHeight = 120;
-
-            // Calculate available height and set iframe to fill it
-            const availableHeight = window.innerHeight - navbarHeight - footerHeight;
-            let height = 1200;
+            let height = 1600;
 
             if (width < 768) {
-                // Mobile: use available height
-                height = Math.max(800, availableHeight);
+                // Mobile: tall enough to fit all content
+                height = 2400;
             } else if (width < 1024) {
                 // Tablet: balanced height
-                height = Math.max(1000, availableHeight);
+                height = 2000;
             } else {
-                // Desktop: use available height or minimum 1200px
-                height = Math.max(1200, availableHeight);
+                // Desktop: standard height
+                height = 1600;
             }
 
             setIframeHeight(height);
@@ -39,11 +34,13 @@ const QAMill = memo(function QAMill() {
                 width="100%"
                 height={iframeHeight}
                 frameBorder="0"
+                scrolling="no"
                 style={{
                     border: 'none',
                     margin: 0,
                     padding: 0,
-                    display: 'block'
+                    display: 'block',
+                    overflow: 'hidden'
                 }}
                 title="QA Mill - AI-Powered Testing Automation"
             />
