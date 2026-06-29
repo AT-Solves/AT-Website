@@ -1,17 +1,9 @@
 import { memo } from 'react';
-import { QA_MILL_PAGE } from '../config/constants';
 
 const QAMill = memo(function QAMill() {
     return (
         <main>
-            <section className="hero">
-                <div className="hero-inner">
-                    <h1 className="hero-title">{QA_MILL_PAGE.HERO.TITLE}</h1>
-                    <p className="hero-text">{QA_MILL_PAGE.HERO.DESCRIPTION}</p>
-                </div>
-            </section>
-
-            <section className="section">
+            <section className="section" style={{ paddingTop: '40px' }}>
                 <div className="container">
                     <iframe
                         src="https://qamill.achieverthoughts.com/website/index-iframe.html"
