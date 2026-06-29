@@ -1,8 +1,8 @@
 ﻿import { memo } from "react";
-import "../styles/variables.css";
-import "../styles/base.css";
-import "../styles/layout.css";
-import "../styles/home.css";
+import "../Styles/variables.css";
+import "../Styles/base.css";
+import "../Styles/layout.css";
+import "../Styles/home.css";
 import { Link } from "react-router-dom";
 import {
     HOME_PAGE,

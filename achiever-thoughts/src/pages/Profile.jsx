@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { PROFILE_PAGE, UI_CLASSES } from "../config/constants";
-import "../styles/profile.css";
+import "../Styles/profile.css";
 
 const Profile = memo(function Profile() {
     return (

@@ -1,7 +1,7 @@
 import { useState, memo } from "react";
-import "../styles/variables.css";
-import "../styles/base.css";
-import "../styles/ai-achiever.css";
+import "../Styles/variables.css";
+import "../Styles/base.css";
+import "../Styles/ai-achiever.css";
 import { WELCOME_CONFIG, SKILL_TREE, SKILLS_DATA } from "../data/aiAchieverData";
 import greenLogo from "../assets/ATIcon-Green.png";
 

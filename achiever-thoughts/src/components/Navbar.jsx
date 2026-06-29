@@ -1,5 +1,5 @@
 ﻿import { memo, useState } from "react";
-import "../styles/navbar.css";
+import "../Styles/navbar.css";
 import logo from "../assets/ATIcon-White.png";
 import { Link } from "react-router-dom";
 import { UI_CLASSES, NAVBAR_ARIA, NAVIGATION, NAVBAR_LABELS, APP_CONFIG } from "../config/constants";

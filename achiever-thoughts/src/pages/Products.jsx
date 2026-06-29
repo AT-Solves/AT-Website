@@ -1,6 +1,6 @@
 ﻿import { memo } from "react";
 import products from "../data/products.json";
-import "../styles/products.css";
+import "../Styles/products.css";
 import { PRODUCTS_PAGE, UI_CLASSES, PRODUCT_LABELS } from "../config/constants";
 
 const Products = memo(function Products() {
