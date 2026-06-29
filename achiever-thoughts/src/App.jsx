@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,8 +8,14 @@ import Investors from './pages/Investors';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import AIAchiever from './pages/AIAchiever';
-import QAMill from './pages/QAMill';
 import { ROUTES } from './config/constants';
+
+const QAMillRedirect = memo(function QAMillRedirect() {
+  useEffect(() => {
+    window.location.href = 'https://qamill.achieverthoughts.com';
+  }, []);
+  return null;
+});
 
 const App = memo(function App() {
     return (
@@ -22,7 +28,7 @@ const App = memo(function App() {
                 <Route path={ROUTES.ABOUT}       element={<About />} />
                 <Route path={ROUTES.PROFILE}     element={<Profile />} />
                 <Route path={ROUTES.AI_ACHIEVER} element={<AIAchiever />} />
-                <Route path={ROUTES.QA_MILL}     element={<QAMill />} />
+                <Route path={ROUTES.QA_MILL}     element={<QAMillRedirect />} />
             </Routes>
             <Footer />
         </Router>
