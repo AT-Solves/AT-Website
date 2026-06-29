@@ -13,22 +13,21 @@ const QAMill = memo(function QAMill() {
 
             <section className="section">
                 <div className="container">
-                    {/* QA Mill iframe placeholder - add your iframe code here */}
-                    <div style={{
-                        background: '#ffffff',
-                        border: '1px solid rgba(0, 0, 0, 0.08)',
-                        borderRadius: '8px',
-                        padding: '32px',
-                        minHeight: '600px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)'
-                    }}>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '16px' }}>
-                            QA Mill application will be embedded here
-                        </p>
-                    </div>
+                    <iframe
+                        src="https://qamill.achieverthoughts.com/website/index-iframe.html"
+                        width="100%"
+                        height="1600"
+                        frameBorder="0"
+                        style={{
+                            border: 'none',
+                            borderRadius: '8px',
+                            boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)',
+                            maxWidth: '1200px',
+                            margin: '0 auto',
+                            display: 'block'
+                        }}
+                        title="QA Mill - AI-Powered Testing Automation"
+                    />
                 </div>
             </section>
         </main>
