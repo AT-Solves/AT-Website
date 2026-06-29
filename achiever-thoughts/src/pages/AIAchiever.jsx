@@ -3,7 +3,6 @@ import "../styles/variables.css";
 import "../styles/base.css";
 import "../styles/ai-achiever.css";
 import { WELCOME_CONFIG, SKILL_TREE, SKILLS_DATA } from "../data/aiAchieverData";
-import { QA_MILL_PAGE } from "../config/constants";
 import greenLogo from "../assets/ATIcon-Green.png";
 
 // ─── WELCOME ──────────────────────────────────────────────────────────────────
@@ -171,109 +170,6 @@ const ExerciseSection = memo(function ExerciseSection({ data, inputs, setInputs,
   );
 });
 
-// ─── QA MILL SECTION ──────────────────────────────────────────────────────────
-const QAMillSection = memo(function QAMillSection() {
-  return (
-    <div className="aa-exercise">
-      <div className="aa-section-intro">
-        <h3 className="aa-section-title">{QA_MILL_PAGE.HERO.TITLE}</h3>
-        <p className="aa-section-desc">{QA_MILL_PAGE.HERO.DESCRIPTION}</p>
-      </div>
-
-      <div style={{ marginBottom: '28px' }}>
-        <h3 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--text-primary)', marginTop: 0, marginBottom: '12px' }}>
-          {QA_MILL_PAGE.MISSION.TITLE}
-        </h3>
-        <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.7', margin: 0 }}>
-          {QA_MILL_PAGE.MISSION.DESCRIPTION}
-        </p>
-      </div>
-
-      <div style={{ marginBottom: '28px' }}>
-        <h3 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--text-primary)', marginTop: 0, marginBottom: '18px' }}>
-          {QA_MILL_PAGE.FEATURES.TITLE}
-        </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-          {QA_MILL_PAGE.FEATURES.ITEMS.map((feature, idx) => (
-            <div key={idx} style={{
-              background: '#ffffff',
-              border: '1px solid rgba(0, 0, 0, 0.07)',
-              borderRadius: '12px',
-              padding: '24px',
-              boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)'
-            }}>
-              <h4 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)', marginTop: 0, marginBottom: '8px' }}>
-                {feature.title}
-              </h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ marginBottom: '28px' }}>
-        <h3 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--text-primary)', marginTop: 0, marginBottom: '12px' }}>
-          {QA_MILL_PAGE.IMPACT.TITLE}
-        </h3>
-        <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.7', margin: 0 }}>
-          {QA_MILL_PAGE.IMPACT.DESCRIPTION}
-        </p>
-      </div>
-
-      <div style={{
-        background: '#ffffff',
-        border: '1px solid rgba(0, 0, 0, 0.07)',
-        borderRadius: '14px',
-        padding: '28px 30px',
-        boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)',
-        textAlign: 'center'
-      }}>
-        <span style={{
-          display: 'inline-block',
-          padding: '6px 16px',
-          backgroundColor: 'var(--accent-green)',
-          color: '#fff',
-          borderRadius: '20px',
-          fontSize: '10px',
-          fontWeight: '700',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          marginBottom: '16px'
-        }}>
-          {QA_MILL_PAGE.STATUS.BADGE}
-        </span>
-        <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '500px', margin: '0 auto 16px' }}>
-          {QA_MILL_PAGE.STATUS.DESCRIPTION}
-        </p>
-        <a
-          href={QA_MILL_PAGE.STATUS.GITHUB_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            padding: '10px 26px',
-            background: 'var(--accent-green)',
-            color: '#ffffff',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '13.5px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            transition: 'opacity 0.15s'
-          }}
-          onMouseEnter={(e) => e.target.style.opacity = '0.9'}
-          onMouseLeave={(e) => e.target.style.opacity = '1'}
-        >
-          View on GitHub
-        </a>
-      </div>
-    </div>
-  );
-});
-
 // ─── SKILL VIEW ───────────────────────────────────────────────────────────────
 const MODES = [
   { id: "naive",   label: "Naive" },
@@ -397,7 +293,7 @@ const AIAchiever = memo(function AIAchiever() {
   const totalSkills = SKILL_TREE.reduce((n, c) => n + c.skills.length, 0);
 
   const selectSkill = (skill, cat) => {
-    setSelected({ skill, cat, isProject: false });
+    setSelected({ skill, cat });
     setSection("concept");
     setMode("naive");
     setInputs({});
@@ -407,14 +303,6 @@ const AIAchiever = memo(function AIAchiever() {
       try { localStorage.setItem("aa-visited", JSON.stringify([...next])); } catch {}
       return next;
     });
-  };
-
-  const selectProject = () => {
-    setSelected({ isProject: true });
-    setSection("concept");
-    setMode("naive");
-    setInputs({});
-    setRevealed({});
   };
 
   const toggleCat = (catId) => setExpanded(prev => prev === catId ? null : catId);
@@ -458,32 +346,12 @@ const AIAchiever = memo(function AIAchiever() {
               )}
             </div>
           ))}
-
-          <div className="aa-cat" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.07)', marginTop: '8px', paddingTop: '8px' }}>
-            <button
-              className={`aa-skill-btn${selected?.isProject ? " active" : ""}`}
-              onClick={() => selectProject()}
-              style={{ padding: '11px 16px', fontWeight: '600' }}
-            >
-              QA Mill
-            </button>
-          </div>
         </aside>
 
         {/* MAIN CONTENT */}
         <div className="aa-main">
           {!selected ? (
             <Welcome totalSkills={totalSkills} visited={visited} />
-          ) : selected.isProject ? (
-            <div className="aa-skill-view">
-              <div className="aa-skill-top">
-                <div className="aa-skill-info">
-                  <h2 className="aa-skill-name">QA Mill</h2>
-                  <p className="aa-skill-subtitle">{QA_MILL_PAGE.HERO.DESCRIPTION}</p>
-                </div>
-              </div>
-              <QAMillSection />
-            </div>
           ) : (
             <SkillView
               skill={selected.skill}
