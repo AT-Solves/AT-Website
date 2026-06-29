@@ -9,37 +9,42 @@ import greenLogo from "../assets/ATIcon-Green.png";
 const Welcome = memo(function Welcome({ totalSkills, visited }) {
   return (
     <div className="aa-welcome">
-      <img src={greenLogo} alt="Achiever Thoughts" className="aa-welcome-logo" />
-      <h1>{WELCOME_CONFIG.title}</h1>
-      <p className="aa-welcome-sub">{WELCOME_CONFIG.subtitle}</p>
+      <div className="aa-welcome-left">
+        <img src={greenLogo} alt="Achiever Thoughts" className="aa-welcome-logo" />
+        <p className="aa-welcome-eyebrow">{WELCOME_CONFIG.tagline}</p>
+        <h1>{WELCOME_CONFIG.title}</h1>
+        <p className="aa-welcome-sub">{WELCOME_CONFIG.subtitle}</p>
 
-      <div className="aa-welcome-modes">
+        <div className="aa-welcome-stats">
+          <div className="aa-stat">
+            <span className="aa-stat-num">{totalSkills}</span>
+            <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.skills}</span>
+          </div>
+          <div className="aa-stat-divider" />
+          <div className="aa-stat">
+            <span className="aa-stat-num">3</span>
+            <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.modes}</span>
+          </div>
+          <div className="aa-stat-divider" />
+          <div className="aa-stat">
+            <span className="aa-stat-num">{visited.size}</span>
+            <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.explored}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="aa-welcome-right">
         {WELCOME_CONFIG.modes.map((m, i) => (
           <div
             className="aa-welcome-mode-card"
             key={m.name}
             style={{ animationDelay: `${i * 0.1}s` }}
           >
-            <span className="aa-welcome-mode-icon">{m.icon}</span>
-            <div className="aa-welcome-mode-name">{m.icon} {m.name}</div>
+            <div className="aa-welcome-mode-num">{m.number}</div>
+            <div className="aa-welcome-mode-name">{m.name}</div>
             <p className="aa-welcome-mode-desc">{m.description}</p>
           </div>
         ))}
-      </div>
-
-      <div className="aa-welcome-stats">
-        <div className="aa-stat">
-          <span className="aa-stat-num">{totalSkills}</span>
-          <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.skills}</span>
-        </div>
-        <div className="aa-stat">
-          <span className="aa-stat-num">3</span>
-          <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.modes}</span>
-        </div>
-        <div className="aa-stat">
-          <span className="aa-stat-num">{visited.size}</span>
-          <span className="aa-stat-label">{WELCOME_CONFIG.statsLabels.explored}</span>
-        </div>
       </div>
     </div>
   );
@@ -47,12 +52,11 @@ const Welcome = memo(function Welcome({ totalSkills, visited }) {
 
 // ─── CONCEPT SECTION ──────────────────────────────────────────────────────────
 const ConceptSection = memo(function ConceptSection({ data }) {
-  const { headline, emoji, core_idea, why_it_matters, key_insight, analogy, pillars } = data;
+  const { core_idea, why_it_matters, key_insight, analogy, pillars } = data;
   return (
     <div className="aa-concept">
-      <div className="aa-hero-card">
-        <span className="aa-hero-emoji">{emoji}</span>
-        <h2 className="aa-hero-headline">{headline}</h2>
+      <div className="aa-key-insight">
+        <p>"{key_insight}"</p>
       </div>
 
       <div className="aa-cards-row">
@@ -66,20 +70,19 @@ const ConceptSection = memo(function ConceptSection({ data }) {
         </div>
       </div>
 
-      <div className="aa-key-insight" style={{ animationDelay: "0.24s" }}>
-        <p>"{key_insight}"</p>
-      </div>
-
       <div className="aa-cards-row">
-        <div className="aa-card" style={{ animationDelay: "0.32s" }}>
+        <div className="aa-card" style={{ animationDelay: "0.24s" }}>
           <div className="aa-card-label">Analogy</div>
           <p className="aa-card-text">{analogy}</p>
         </div>
-        <div className="aa-pillars-card" style={{ animationDelay: "0.40s" }}>
-          <div className="aa-pillars-label">Three Pillars</div>
+        <div className="aa-pillars-card" style={{ animationDelay: "0.32s" }}>
+          <div className="aa-pillars-label">Key Pillars</div>
           <ul className="aa-pillars-list">
             {pillars.map((p, i) => (
-              <li key={i}><span className="aa-pillar-dot" />{p}</li>
+              <li key={i}>
+                <span className="aa-pillar-num">{String(i + 1).padStart(2, "0")}</span>
+                {p}
+              </li>
             ))}
           </ul>
         </div>
@@ -92,6 +95,10 @@ const ConceptSection = memo(function ConceptSection({ data }) {
 const ExamplesSection = memo(function ExamplesSection({ data }) {
   return (
     <div className="aa-examples">
+      <div className="aa-section-intro">
+        <h3 className="aa-section-title">Real-World Examples</h3>
+        <p className="aa-section-desc">See how this skill plays out in practice across different domains.</p>
+      </div>
       {data.map((ex, i) => (
         <div className="aa-example-card" key={i} style={{ animationDelay: `${i * 0.1}s` }}>
           <div className="aa-example-header">
@@ -122,14 +129,19 @@ const ExamplesSection = memo(function ExamplesSection({ data }) {
 const ExerciseSection = memo(function ExerciseSection({ data, inputs, setInputs, revealed, setRevealed }) {
   return (
     <div className="aa-exercise">
+      <div className="aa-section-intro">
+        <h3 className="aa-section-title">Practice Exercises</h3>
+        <p className="aa-section-desc">Apply what you have learned. Write your response before revealing the model answer.</p>
+      </div>
       {data.map((cs, i) => (
         <div className="aa-case-card" key={cs.id} style={{ animationDelay: `${i * 0.12}s` }}>
+          <div className="aa-case-num">Case {String(i + 1).padStart(2, "0")}</div>
           <div className="aa-case-title">{cs.title}</div>
           <p className="aa-case-scenario">{cs.scenario}</p>
           <p className="aa-case-challenge">{cs.challenge}</p>
           <div className="aa-hints">
             {cs.hints.map((h, j) => (
-              <span className="aa-hint-chip" key={j}>💡 {h}</span>
+              <span className="aa-hint-chip" key={j}>{h}</span>
             ))}
           </div>
           <textarea
@@ -144,7 +156,7 @@ const ExerciseSection = memo(function ExerciseSection({ data, inputs, setInputs,
             disabled={revealed[cs.id]}
             onClick={() => setRevealed(prev => ({ ...prev, [cs.id]: true }))}
           >
-            {revealed[cs.id] ? "Answer Revealed ✓" : "Submit & See Model Answer"}
+            {revealed[cs.id] ? "Answer Revealed" : "Submit and See Model Answer"}
           </button>
           {revealed[cs.id] && (
             <div className="aa-model-answer">
@@ -160,14 +172,14 @@ const ExerciseSection = memo(function ExerciseSection({ data, inputs, setInputs,
 
 // ─── SKILL VIEW ───────────────────────────────────────────────────────────────
 const MODES = [
-  { id: "naive",   label: "🌱 Naive" },
-  { id: "learner", label: "📚 Learner" },
-  { id: "expert",  label: "🎓 Expert" },
+  { id: "naive",   label: "Naive" },
+  { id: "learner", label: "Learner" },
+  { id: "expert",  label: "Expert" },
 ];
 const TABS = [
-  { id: "concept",  label: "💡 Concept" },
-  { id: "examples", label: "🌍 Examples" },
-  { id: "exercise", label: "🏋️ Exercise" },
+  { id: "concept",  label: "Concept" },
+  { id: "examples", label: "Examples" },
+  { id: "exercise", label: "Exercise" },
 ];
 
 const SkillView = memo(function SkillView({
@@ -185,36 +197,56 @@ const SkillView = memo(function SkillView({
   if (!modeData) {
     return (
       <div className="aa-skill-view">
-        <div className="aa-skill-header">
-          <span className="aa-skill-cat-badge" style={{ background: cat.color }}>{cat.name}</span>
-          <h2 className="aa-skill-name">{skill.name}</h2>
+        <div className="aa-skill-top">
+          <div className="aa-skill-info">
+            <div className="aa-skill-breadcrumb">
+              <span className="aa-skill-cat-badge" style={{ background: cat.color }}>{cat.name}</span>
+            </div>
+            <h2 className="aa-skill-name">{skill.name}</h2>
+          </div>
         </div>
-        <p style={{ color: "var(--text-muted)", fontSize: 15, padding: "24px 0" }}>
-          Content for this skill is being authored. Check back soon.
-        </p>
+        <p className="aa-coming-soon">Content for this skill is being authored. Check back soon.</p>
       </div>
     );
   }
 
   return (
     <div className="aa-skill-view">
-      <div className="aa-skill-header">
-        <span className="aa-skill-cat-badge" style={{ background: cat.color }}>{cat.name}</span>
-        <h2 className="aa-skill-name">{skill.name}</h2>
+      {/* ── TWO-COLUMN HEADER ── */}
+      <div className="aa-skill-top">
+        <div className="aa-skill-info">
+          <div className="aa-skill-breadcrumb">
+            <span className="aa-skill-cat-badge" style={{ background: cat.color }}>{cat.name}</span>
+            <span className="aa-breadcrumb-sep">›</span>
+            <span className="aa-breadcrumb-mode">{mode.charAt(0).toUpperCase() + mode.slice(1)} Mode</span>
+          </div>
+          <h2 className="aa-skill-name">{skill.name}</h2>
+          <p className="aa-skill-subtitle">{modeData.concept.subtitle}</p>
+
+          <div className="aa-modes">
+            {MODES.map((m) => (
+              <button
+                key={m.id}
+                className={`aa-mode-btn${mode === m.id ? " active" : ""}`}
+                onClick={() => changeMode(m.id)}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="aa-skill-hero">
+          <div className="aa-hero-card" key={`hero-${skill.id}-${mode}`}>
+            <div className="aa-hero-mode-tag">{mode.charAt(0).toUpperCase() + mode.slice(1)} Mode</div>
+            <h2 className="aa-hero-headline">{modeData.concept.headline}</h2>
+            <p className="aa-hero-subtitle">{modeData.concept.subtitle}</p>
+            <div className="aa-hero-skill-label">{skill.name}</div>
+          </div>
+        </div>
       </div>
 
-      <div className="aa-modes">
-        {MODES.map((m) => (
-          <button
-            key={m.id}
-            className={`aa-mode-btn${mode === m.id ? " active" : ""}`}
-            onClick={() => changeMode(m.id)}
-          >
-            {m.label}
-          </button>
-        ))}
-      </div>
-
+      {/* ── TABS ── */}
       <div className="aa-tabs">
         {TABS.map((t) => (
           <button
@@ -227,7 +259,8 @@ const SkillView = memo(function SkillView({
         ))}
       </div>
 
-      <div key={`${skill.id}-${mode}`}>
+      {/* ── CONTENT ── */}
+      <div key={`${skill.id}-${mode}-${section}`}>
         {section === "concept"  && <ConceptSection  data={modeData.concept} />}
         {section === "examples" && <ExamplesSection data={modeData.examples} />}
         {section === "exercise" && (
@@ -280,20 +313,20 @@ const AIAchiever = memo(function AIAchiever() {
         {/* SIDEBAR */}
         <aside className="aa-sidebar">
           <div className="aa-sidebar-head">
-            <div className="aa-sidebar-title">Skill Navigator</div>
+            <div className="aa-sidebar-label">Skill Navigator</div>
             <div className="aa-progress-wrap">
               <div className="aa-progress-fill" style={{ width: `${(visited.size / totalSkills) * 100}%` }} />
             </div>
-            <div className="aa-progress-label">{visited.size} / {totalSkills} skills explored</div>
+            <div className="aa-progress-label">{visited.size} of {totalSkills} explored</div>
           </div>
 
           {SKILL_TREE.map((cat) => (
             <div className="aa-cat" key={cat.id}>
               <button className="aa-cat-btn" onClick={() => toggleCat(cat.id)}>
                 <span className="aa-cat-bar" style={{ background: cat.color }} />
-                <span className="aa-cat-icon">{cat.icon}</span>
                 <span className="aa-cat-name">{cat.name}</span>
-                <span className={`aa-cat-chevron${expanded === cat.id ? " open" : ""}`}>▶</span>
+                <span className="aa-cat-count">{cat.skills.length}</span>
+                <span className={`aa-cat-chevron${expanded === cat.id ? " open" : ""}`}>›</span>
               </button>
               {expanded === cat.id && (
                 <div className="aa-skills-list">

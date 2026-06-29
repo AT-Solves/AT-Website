@@ -8,6 +8,7 @@ import Investors from './pages/Investors';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import AIAchiever from './pages/AIAchiever';
+import QAMill from './pages/QAMill';
 import { ROUTES } from './config/constants';
 
 const App = memo(function App() {
@@ -21,6 +22,7 @@ const App = memo(function App() {
                 <Route path={ROUTES.ABOUT}       element={<About />} />
                 <Route path={ROUTES.PROFILE}     element={<Profile />} />
                 <Route path={ROUTES.AI_ACHIEVER} element={<AIAchiever />} />
+                <Route path={ROUTES.QA_MILL}     element={<QAMill />} />
             </Routes>
             <Footer />
         </Router>

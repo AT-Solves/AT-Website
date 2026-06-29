@@ -20,12 +20,14 @@ export const ROUTES = {
     ABOUT: "/about",
     PROFILE: "/profile",
     AI_ACHIEVER: "/ai-achiever",
+    QA_MILL: "/qa-mill",
 };
 
 export const NAVIGATION = {
     ITEMS: [
         { label: "Home", path: ROUTES.HOME },
         { label: "AI Achiever", path: ROUTES.AI_ACHIEVER },
+        { label: "QA Mill", path: ROUTES.QA_MILL },
         { label: "Profile", path: ROUTES.PROFILE },
     ],
 };
@@ -130,6 +132,57 @@ export const INVESTORS_PAGE = {
     HERO: {
         TITLE: "Investors",
         DESCRIPTION: "Information for investors and partners interested in our vision and projects.",
+    },
+};
+
+export const QA_MILL_PAGE = {
+    HERO: {
+        TITLE: "QA Mill",
+        DESCRIPTION: "AI-powered testing automation for VS Code. Generate tests, validate coverage, and ship with confidence.",
+    },
+    SECTION_TITLE: "About QA Mill",
+    MISSION: {
+        TITLE: "What is QA Mill?",
+        DESCRIPTION: "QA Mill is a VS Code extension that leverages AI to automate the entire testing lifecycle. Generate unit tests, functional test suites, mutate source code for validation, and automatically write missing tests—all from within your editor.",
+    },
+    FEATURES: {
+        TITLE: "Key Features",
+        ITEMS: [
+            {
+                title: "AI Test Generation",
+                description: "Automatically generate unit tests and functional test suites using prompt engineering and LLM integration.",
+            },
+            {
+                title: "Code Mutation & Validation",
+                description: "Mutate source code and validate test suites against those variants to ensure comprehensive coverage.",
+            },
+            {
+                title: "Real-Time Test Writing",
+                description: "Write missing tests automatically in real-time inside the editor via contextual menu.",
+            },
+            {
+                title: "Regression Suite Generation",
+                description: "Generate regression test suites with AI-driven insights and best practices.",
+            },
+            {
+                title: "Coverage Analysis",
+                description: "Analyze test coverage and identify gaps automatically.",
+            },
+            {
+                title: "Integrated Workflow",
+                description: "Seamless VS Code integration—no context switching, no friction.",
+            },
+        ],
+    },
+    IMPACT: {
+        TITLE: "Impact & Goals",
+        DESCRIPTION: "QA Mill targets 40–60% reduction in manual test maintenance effort by automating repetitive testing tasks and enabling teams to focus on strategic quality initiatives.",
+    },
+    STATUS: {
+        TITLE: "Project Status",
+        BADGE: "Currently Building",
+        DESCRIPTION: "QA Mill is actively in development. View the progress and contribute on GitHub.",
+        GITHUB_LINK: "https://github.com/AT-Solves/QAMill",
     },
 };
 
