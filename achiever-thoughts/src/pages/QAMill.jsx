@@ -1,38 +1,55 @@
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, useRef } from 'react';
 
 const QAMill = memo(function QAMill() {
-    const [iframeHeight, setIframeHeight] = useState(1200);
+    const [iframeHeight, setIframeHeight] = useState(2000);
+    const iframeRef = useRef(null);
 
     useEffect(() => {
+        const handleIframeMessage = (event) => {
+            // Listen for postMessage from iframe with content height
+            if (event.origin !== 'https://qamill.achieverthoughts.com') return;
+            if (event.data.type === 'iframe-height') {
+                setIframeHeight(event.data.height);
+            }
+        };
+
+        window.addEventListener('message', handleIframeMessage);
+
         const updateHeight = () => {
             const width = window.innerWidth;
-            // Adjust height based on screen size for responsiveness
-            const navbarHeight = 64;
-            const footerHeight = 120;
-            let height = 1200;
+            let height = 2000;
 
             if (width < 768) {
-                // Mobile: adjust height
-                height = Math.max(600, window.innerHeight - navbarHeight - footerHeight);
+                height = 3000;
             } else if (width < 1024) {
-                // Tablet: slight adjustment
-                height = 1100;
+                height = 2400;
             } else {
-                // Desktop: full height
-                height = Math.max(1200, window.innerHeight - navbarHeight - footerHeight);
+                height = Math.max(2000, window.innerHeight - 184);
             }
 
             setIframeHeight(height);
+
+            // Notify iframe about available height
+            if (iframeRef.current?.contentWindow) {
+                iframeRef.current.contentWindow.postMessage(
+                    { type: 'available-height', height },
+                    'https://qamill.achieverthoughts.com'
+                );
+            }
         };
 
         updateHeight();
         window.addEventListener('resize', updateHeight);
-        return () => window.removeEventListener('resize', updateHeight);
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+            window.removeEventListener('message', handleIframeMessage);
+        };
     }, []);
 
     return (
-        <main style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
+        <main style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
             <iframe
+                ref={iframeRef}
                 src="https://qamill.achieverthoughts.com/index-iframe.html"
                 width="100%"
                 height={iframeHeight}
