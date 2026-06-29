@@ -2,15 +2,24 @@ import { memo } from 'react';
 
 const QAMill = memo(function QAMill() {
     return (
-        <main style={{ display: 'flex', flexDirection: 'column', width: '100%', minHeight: '100vh', margin: 0, padding: 0 }}>
+        <main style={{
+            display: 'block',
+            width: '100vw',
+            marginLeft: 'calc(-50vw + 50%)',
+            minHeight: '100vh',
+            margin: 0,
+            padding: 0
+        }}>
             <iframe
                 src="https://qamill.achieverthoughts.com/index-iframe.html"
                 style={{
-                    width: '100%',
+                    width: '100vw',
                     height: '900px',
                     border: 'none',
                     display: 'block',
-                    minHeight: '900px'
+                    margin: 0,
+                    padding: 0,
+                    marginLeft: 'calc(-50vw + 50%)'
                 }}
                 frameBorder="0"
                 scrolling="yes"
