@@ -2,30 +2,28 @@ import { memo } from 'react';
 
 const QAMill = memo(function QAMill() {
     return (
-        <main style={{ display: 'flex', flexDirection: 'column', width: '100%', padding: '20px 0' }}>
+        <main style={{ display: 'flex', flexDirection: 'column', width: '100vw', minHeight: '100vh', margin: 0, padding: 0 }}>
             <div style={{
                 position: 'relative',
                 width: '100%',
-                paddingBottom: '75%',
-                height: 0,
-                overflow: 'hidden',
-                borderRadius: '8px',
-                boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)',
-                maxWidth: '1400px',
-                margin: '0 auto',
-                backgroundColor: '#ffffff'
+                height: 'auto',
+                minHeight: '900px',
+                overflow: 'visible'
             }}>
                 <iframe
                     src="https://qamill.achieverthoughts.com/index-iframe.html"
                     style={{
-                        position: 'absolute',
+                        position: 'relative',
                         top: 0,
                         left: 0,
                         width: '100%',
-                        height: '100%',
-                        border: 'none'
+                        minHeight: '900px',
+                        height: 'auto',
+                        border: 'none',
+                        display: 'block'
                     }}
                     frameBorder="0"
+                    allowFullScreen
                     title="QA Mill - AI-Powered Testing Automation"
                 />
             </div>
