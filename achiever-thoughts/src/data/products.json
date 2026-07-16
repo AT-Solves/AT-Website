@@ -49,7 +49,7 @@
     "name": "QA Mill",
     "category": "Testing Automation / AI Testing Tools",
     "description": "Intelligent mutation testing and AI-powered test generation platform that automates test creation, improves coverage, and validates code quality. Supports multiple LLM providers with intelligent fallback systems.",
-    "url": "https://qamill.achieverthoughts.com",
+    "url": "/qa-mill",
     "github": "https://github.com/AT-Solves/QAMill",
     "status": "Beta"
   }
