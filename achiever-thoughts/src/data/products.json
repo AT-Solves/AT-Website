@@ -1,5 +1,23 @@
 [
   {
+    "id": "qamill",
+    "name": "QA Mill",
+    "category": "Testing Automation / AI Testing Tools",
+    "description": "Intelligent mutation testing and AI-powered test generation platform that automates test creation, improves coverage, and validates code quality. Supports multiple LLM providers with intelligent fallback systems.",
+    "url": "/qa-mill",
+    "github": "https://github.com/AT-Solves/QAMill",
+    "status": "Beta"
+  },
+  {
+    "id": "nagvoice",
+    "name": "NagVoice",
+    "category": "AI Personal Productivity",
+    "description": "AI-powered personal productivity assistant that captures routines, reminders, and schedules from voice, text, images, PDFs, and calendars, then intelligently organizes them into actionable reminders with smart notifications.",
+    "url": "https://nagvoice.achieverthoughts.com",
+    "github": "Private Repository – Available upon request",
+    "status": "In Development (Beta)"
+  },
+  {
     "id": "thinkraft",
     "name": "Thinkraft",
     "category": "AI Startup Tools",
@@ -34,23 +52,5 @@
     "url": "/ideagenerator",
     "github": "https://github.com/your-repo/idea-lab-ai",
     "status": "Prototype"
-  },
-  {
-    "id": "nagvoice",
-    "name": "NagVoice",
-    "category": "AI Personal Productivity",
-    "description": "AI-powered personal productivity assistant that captures routines, reminders, and schedules from voice, text, images, PDFs, and calendars, then intelligently organizes them into actionable reminders with smart notifications.",
-    "url": "https://nagvoice.achieverthoughts.com",
-    "github": "Private Repository – Available upon request",
-    "status": "In Development (Beta)"
-  },
-  {
-    "id": "qamill",
-    "name": "QA Mill",
-    "category": "Testing Automation / AI Testing Tools",
-    "description": "Intelligent mutation testing and AI-powered test generation platform that automates test creation, improves coverage, and validates code quality. Supports multiple LLM providers with intelligent fallback systems.",
-    "url": "/qa-mill",
-    "github": "https://github.com/AT-Solves/QAMill",
-    "status": "Beta"
   }
 ]
